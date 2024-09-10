@@ -1,0 +1,140 @@
+﻿<Window x:Class="_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1"
+        mc:Ignorable="d"
+        Title="Calc" Height="350" Width="300" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+        <Style x:Key="StyleButNumber" TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FF6B1475"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#FFA255DA" />
+                            <GradientStop Offset="1.0" Color="#FF22026B" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=CheckBoxNight, Path=IsChecked}"
+                        Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
+        <Style x:Key="StyleNumSigns" TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FF153C00"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#FF63F15E" />
+                            <GradientStop Offset="1.0" Color="#FF0A6520" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=CheckBoxNight, Path=IsChecked}"
+                        Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+
+        </Style>
+
+        <Style x:Key="StyleTextValue" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#FFE6E6CB" />
+                            <GradientStop Offset="1.0" Color="#FF7D807E" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=CheckBoxNight, Path=IsChecked}"
+                        Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+
+        </Style>
+
+        <Style x:Key="StyleBorder" TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#FF003DD2" />
+                            <GradientStop Offset="1.0" Color="#FFFD076C" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid Margin="0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="1" Grid.ColumnSpan="4" Style="{StaticResource ResourceKey=StyleBorder}">
+                <TextBlock FontSize="16" Margin="1" TextAlignment="Right" Style="{StaticResource ResourceKey=StyleTextValue}" >1+1</TextBlock>
+            </Border>
+            
+            <Border Margin="1" Grid.Row="1" Grid.ColumnSpan="4" Style="{StaticResource ResourceKey=StyleBorder}">
+                <TextBlock FontSize="16" Margin="1" TextAlignment="Right" Style="{StaticResource ResourceKey=StyleTextValue}" >=2</TextBlock>
+
+            </Border>
+            <Button Margin="1" Grid.Column="0" Grid.Row="2" Style="{StaticResource ResourceKey=StyleNumSigns}">CE</Button>
+            <Button Margin="1" Grid.Column="1" Grid.Row="2" Style="{StaticResource ResourceKey=StyleNumSigns}" >C</Button>
+            <Button Margin="1" Grid.Column="2" Grid.Row="2" Style="{StaticResource ResourceKey=StyleNumSigns}" >&lt;</Button>
+            <Button Margin="1" Grid.Column="3" Grid.Row="2" Style="{StaticResource ResourceKey=StyleNumSigns}" >/</Button>
+            <Button Margin="1" Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StyleButNumber}" >7</Button>
+            <Button Margin="1" Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StyleButNumber}" >8</Button>
+            <Button Margin="1" Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StyleButNumber}" >9</Button>
+            <Button Margin="1" Grid.Column="3" Grid.Row="3" Style="{StaticResource ResourceKey=StyleNumSigns}" >*</Button>
+            <Button Margin="1" Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StyleButNumber}" >4</Button>
+            <Button Margin="1" Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StyleButNumber}" >5</Button>
+            <Button Margin="1" Grid.Column="2" Grid.Row="4" Style="{StaticResource ResourceKey=StyleButNumber}" >6</Button>
+            <Button Margin="1" Grid.Column="3" Grid.Row="4" Style="{StaticResource ResourceKey=StyleNumSigns}" >-</Button>
+            <Button Margin="1" Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=StyleButNumber}" >1</Button>
+            <Button Margin="1" Grid.Column="1" Grid.Row="5" Style="{StaticResource ResourceKey=StyleButNumber}" >2</Button>
+            <Button Margin="1" Grid.Column="2" Grid.Row="5" Style="{StaticResource ResourceKey=StyleButNumber}" >3</Button>
+            <Button Margin="1" Grid.Column="3" Grid.Row="5" Style="{StaticResource ResourceKey=StyleNumSigns}" >+</Button>
+            <Button Margin="1" Grid.Column="0" Grid.Row="6" Style="{StaticResource ResourceKey=StyleNumSigns}" >.</Button>
+            <Button Margin="1" Grid.Column="1" Grid.Row="6" Style="{StaticResource ResourceKey=StyleButNumber}" >0</Button>
+            <Button Margin="1" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=StyleNumSigns}" >=</Button>
+        </Grid>
+    </Grid>
+</Window>
